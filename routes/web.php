@@ -16,6 +16,24 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+
 Auth::routes();
+
+/*
+|--------------------------------------------------------------------------
+| PEOPLE Routes
+|--------------------------------------------------------------------------
+|
+*/
+
+
+Route::get('people/create','PersonController@create');
+
+Route::post('people','PersonController@store');
+
+
+
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
