@@ -105,7 +105,7 @@
                                     <div class="dw-user-box">
                                         <div class="u-img"><img src="{{ asset('/assets/images/users/9.jpg') }}" alt="user"></div>
                                         <div class="u-text">
-                                            <h4>{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}</h4>
+                                            <h4>{{ Auth::user()->name }} {{ Auth::user()->surname }}</h4>
                                             <p class="text-muted">{{ Auth::user()->email }}</p><a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
                                     </div>
                                 </li>
@@ -136,7 +136,7 @@
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
                     <li class="user-profile">
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="{{asset('/assets/images/users/9.jpg') }}" alt="user" /><span class="hide-menu">{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}  </span><br><span>{{ Auth::user()->role->name }}</span></a>
+                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="{{asset('/assets/images/users/9.jpg') }}" alt="user" /><span class="hide-menu">{{ Auth::user()->name }} {{ Auth::user()->surname }}  </span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="#">My Profile </a></li>
                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a></li>
@@ -144,42 +144,40 @@
                     </li>
                     <li class="nav-devider"></li>
 
-                    @foreach ( Auth::user()->permissions as $userPermission)
 
-                        @if($userPermission->permission->name == 'View Users List')
 
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Users <span class="label label-rouded label-themecolor pull-right">{{ count($noUsers,0) }}</span></span></a>
+
+
+                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Users <span class="label label-rouded label-themecolor pull-right">0</span></span></a>
                                 <ul aria-expanded="false" class="collapse">
                                     <li><a href="{{ url('users') }}">List </a></li>
 
                                 </ul>
                             </li>
 
-                        @endif
 
-                        @if($userPermission->permission->name == 'Create a Budget')
 
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Budgets <span class="label label-rouded label-themecolor pull-right">{{ count($noBudgets,0) }}</span></span></a>
+
+
+                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Budgets <span class="label label-rouded label-themecolor pull-right">0</span></span></a>
                                 <ul aria-expanded="false" class="collapse">
                                     <li><a href="{{ url('budgets') }}">List </a></li>
                                 </ul>
                             </li>
 
-                        @endif
 
 
-                        @if($userPermission->permission->name == 'Review a Budget')
 
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Budgets <span class="label label-rouded label-themecolor pull-right">{{ count($noBudgetsReviewers,0) }}</span></span></a>
+
+                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Budgets <span class="label label-rouded label-themecolor pull-right">0</span></span></a>
                                 <ul aria-expanded="false" class="collapse">
                                     <li><a href="{{ url('budgetsReviewers') }}">List </a></li>
 
                                 </ul>
                             </li>
 
-                        @endif
 
-                    @endforeach
+
 
                 </ul>
             </nav>

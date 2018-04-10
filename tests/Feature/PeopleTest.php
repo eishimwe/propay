@@ -29,4 +29,34 @@ class PeopleTest extends TestCase
 
 
     }
+
+    /** @test */
+
+    function an_authenticated_user_can_create_new_people(){
+
+
+        $this->withoutExceptionHandling();
+
+        // Given we have a signed in user
+        $this->signIn();
+
+
+        // When we hit the endpoint to create a new person
+        $person   = make('App\Person');
+
+        $this->post('/people',$person->toArray());
+
+
+
+        // Then, when we visit the people page
+        $this->get('/people');
+
+
+        $this->get('/people_list')->assertSee($person->name)->assertSee($person->surname);
+
+
+    }
+
+
+
 }

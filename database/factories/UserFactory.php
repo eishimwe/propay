@@ -21,3 +21,30 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+
+$factory->define(App\Person::class, function (Faker $faker) {
+    return [
+
+        'name'      => $faker->firstName,
+        'surname'   => $faker->lastName,
+        'id_number' => $faker->unique()->lexify('?????????????'),
+        'mobile_number' =>  $faker->unique()->lexify('??????????'),
+        'birth_date' => $faker->lastName,
+        'language_id' => function(){
+
+             return factory('App\Language')->create()->id;
+        },
+
+    ];
+});
+
+
+$factory->define(App\Language::class, function (Faker $faker) {
+    return [
+        'name'      => $faker->word,
+        'code'      => $faker->word,
+
+    ];
+});
+

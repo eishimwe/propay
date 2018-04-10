@@ -31,6 +31,12 @@ Route::get('people/create','PersonController@create');
 
 Route::post('people','PersonController@store');
 
+Route::get('people','PersonController@index');
+
+Route::get('people_list','PersonController@people_list');
+
+
+
 
 
 
