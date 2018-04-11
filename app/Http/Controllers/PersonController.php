@@ -56,6 +56,26 @@ class PersonController extends Controller
         return view('people.add',compact('languages','interests'));
     }
 
+    public function destroy($id)
+    {
+
+
+        $person = $this->person->find($id);
+
+        $person->interests()->delete();
+
+        $person->delete();
+
+
+        if(request()->wantsJson()){
+
+            return response([],204);
+        }
+
+        return redirect('/people');
+
+    }
+
 
 
 

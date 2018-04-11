@@ -65,6 +65,11 @@ class PersonRepository
 
     }
 
+    function find($id){
+
+        return $this->person->find($id);
+    }
+
 
 
 }

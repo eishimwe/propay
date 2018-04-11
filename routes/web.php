@@ -37,5 +37,7 @@ Route::get('people_list','PersonController@people_list');
 
 Route::get('add_person_form','PersonController@add_person_form');
 
+Route::delete('people/{person}','PersonController@destroy');
+
 
 

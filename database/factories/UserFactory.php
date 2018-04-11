@@ -49,3 +49,28 @@ $factory->define(App\Language::class, function (Faker $faker) {
     ];
 });
 
+$factory->define(App\Interest::class, function (Faker $faker) {
+    return [
+        'name'      => $faker->word
+    ];
+});
+
+
+
+$factory->define(App\PersonInterest::class, function (Faker $faker) {
+    return [
+
+        'person_id' => function(){
+
+            return factory('App\Person')->create()->id;
+        },
+
+        'interest_id' => function(){
+
+            return factory('App\Interest')->create()->id;
+        },
+
+    ];
+});
+
+
