@@ -44,6 +44,7 @@
                                     <th>Email</th>
                                     <th>Mobile Number</th>
                                     <th>Language</th>
+                                    <th>Interests</th>
                                     <th>Actions</th>
 
 
@@ -119,6 +120,18 @@
                     {data: 'mobile_number',  name: 'mobile_number'},
                     {data: 'email',  name: 'email'},
                     {data: 'language.name',  name: 'language.name'},
+                    {data: function(d)
+                    {
+
+                        var interests="";
+                        $.each( d.interests, function( index, value ){
+                            interests += value.interest.name ;
+                            interests += '  ';
+                        });
+
+                        return interests;
+
+                    },"name" : 'name'},
                     {data: 'actions',  name: 'actions'}
 
                 ],

@@ -8,7 +8,7 @@ class Person extends Model
 {
     protected $guarded = [];
 
-    protected $with    = ['language'];
+    protected $with    = ['language','interests'];
 
     public function interests(){
 
@@ -18,6 +18,7 @@ class Person extends Model
 
     public function language(){
 
-        return $this->belongsTo(Language::class,'language_id');
+        return $this->hasOne(Language::class,'id','language_id');
+
     }
 }
