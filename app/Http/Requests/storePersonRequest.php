@@ -26,8 +26,10 @@ class storePersonRequest extends FormRequest
         return [
              'name'             => 'required',
              'surname'          => 'required',
-             'id_number'        => 'required|min:13|max:13|unique:users,id_number',
-             'mobile_number'    => 'required|min:10|max:10|unique:users,mobile_number',
+             'birth_date'       => 'required',
+             'id_number'        => 'required|min:13|max:13|unique:people,id_number',
+             'email'            => 'required|email|unique:people,email',
+             'mobile_number'    => 'required|min:10|max:10|unique:people,mobile_number',
              'language_id'      => 'required|not_in:0',
 
         ];

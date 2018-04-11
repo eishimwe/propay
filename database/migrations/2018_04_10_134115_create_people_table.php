@@ -17,8 +17,9 @@ class CreatePeopleTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('surname');
-            $table->string('id_number');
-            $table->string('mobile_number');
+            $table->string('id_number')->unique();
+            $table->string('mobile_number')->unique();
+            $table->string('email')->unique();
             $table->string('birth_date');
             $table->unsignedInteger('language_id');
             $table->foreign('language_id')->references('id')->on('languages');

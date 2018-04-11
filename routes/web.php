@@ -35,11 +35,7 @@ Route::get('people','PersonController@index');
 
 Route::get('people_list','PersonController@people_list');
 
+Route::get('add_person_form','PersonController@add_person_form');
 
 
 
-
-
-
-
-Route::get('/home', 'HomeController@index')->name('home');

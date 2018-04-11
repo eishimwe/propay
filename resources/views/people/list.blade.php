@@ -30,7 +30,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="button-group">
-                            <a href="{{ url('add-budget-form') }}" class="btn waves-effect waves-light btn-primary">Add New Budget</a>
+                            <a href="{{ url('add_person_form') }}" class="btn waves-effect waves-light btn-primary">Add New Person</a>
                         </div>
                         <div class="table-responsive m-t-40">
                             <table id="people" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
@@ -105,9 +105,9 @@
                 "order" :[[0,"desc"]],
                 "ajax": "{!! url('/people_list')!!}",
                 "columns": [
+                    {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
-                    {data: 'surname', name: 'surname'},
-                    {data: 'actions',  name: 'actions'}
+                    {data: 'surname',  name: 'surname'}
 
                 ],
 

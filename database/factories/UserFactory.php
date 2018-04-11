@@ -30,6 +30,7 @@ $factory->define(App\Person::class, function (Faker $faker) {
         'surname'   => $faker->lastName,
         'id_number' => $faker->unique()->lexify('?????????????'),
         'mobile_number' =>  $faker->unique()->lexify('??????????'),
+        'email' => $faker->unique()->safeEmail,
         'birth_date' => $faker->lastName,
         'language_id' => function(){
 

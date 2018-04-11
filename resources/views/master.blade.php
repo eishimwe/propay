@@ -22,6 +22,12 @@
 
     <link href="{{ asset('assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css') }}" rel="stylesheet">
 
+    <link href="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('assets/plugins/select2/dist/css/select2.min.css') }}" rel="stylesheet">
+
+
+
     <!--c3 CSS -->
     <link href="{{ asset('assets/plugins/c3-master/c3.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
@@ -72,7 +78,7 @@
                     <!--End Logo icon -->
                     <!-- Logo text --><span>
                          <!-- dark Logo text -->
-                         <img src="{{ asset('assets/images/logo-new.png') }}" alt="homepage" class="dark-logo" />
+
                         <!-- Light Logo text -->
                          <img src="{{ asset('assets/images/logo-light-text.png') }}" class="light-logo" alt="homepage" /></span> </a>
             </div>
@@ -106,7 +112,7 @@
                                         <div class="u-img"><img src="{{ asset('/assets/images/users/9.jpg') }}" alt="user"></div>
                                         <div class="u-text">
                                             <h4>{{ Auth::user()->name }} {{ Auth::user()->surname }}</h4>
-                                            <p class="text-muted">{{ Auth::user()->email }}</p><a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                            <p class="text-muted">{{ Auth::user()->email }}</p><a href="#" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
@@ -144,41 +150,12 @@
                     </li>
                     <li class="nav-devider"></li>
 
-
-
-
-
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Users <span class="label label-rouded label-themecolor pull-right">0</span></span></a>
+                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">People <span class="label label-rouded label-themecolor pull-right">0</span></span></a>
                                 <ul aria-expanded="false" class="collapse">
-                                    <li><a href="{{ url('users') }}">List </a></li>
+                                    <li><a href="{{ url('people') }}">List </a></li>
 
                                 </ul>
                             </li>
-
-
-
-
-
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Budgets <span class="label label-rouded label-themecolor pull-right">0</span></span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="{{ url('budgets') }}">List </a></li>
-                                </ul>
-                            </li>
-
-
-
-
-
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Budgets <span class="label label-rouded label-themecolor pull-right">0</span></span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="{{ url('budgetsReviewers') }}">List </a></li>
-
-                                </ul>
-                            </li>
-
-
-
-
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->
@@ -232,6 +209,9 @@
 <script src="{{ asset('assets/plugins/d3/d3.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/c3-master/c3.min.js') }}"></script>
 
+<script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+
+<script src="{{ asset('assets/plugins/select2/dist/js/select2.full.min.js') }}"></script>
 
 
 @yield('footer')

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\storePersonRequest;
 use App\PersonRepository;
+use App\LanguageRepository;
+use App\InterestRepository;
+
 
 class PersonController extends Controller
 {
@@ -20,7 +23,7 @@ class PersonController extends Controller
 
     public function index(){
 
-        return view('people');
+        return view('people.list');
 
     }
 
@@ -40,16 +43,21 @@ class PersonController extends Controller
 
         return datatables()->of($people)
             ->addColumn('actions', '')
-            ->escapeColumns('')
             ->make(true);
 
 
     }
 
-    function create(){
+    function add_person_form(LanguageRepository $language,InterestRepository $interest){
 
+        $languages = $language->getLanguageDropDown();
+        $interests = $interest->getInterestDropDown();
 
+        return view('people.add',compact('languages','interests'));
     }
+
+
+
 
 
 
