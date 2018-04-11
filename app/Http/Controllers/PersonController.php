@@ -8,7 +8,7 @@ use App\LanguageRepository;
 use App\InterestRepository;
 use Log;
 use App\Jobs\SendWelcomeEmail;
-use Mail;
+use Illuminate\Http\Request;
 
 
 class PersonController extends Controller
@@ -47,19 +47,35 @@ class PersonController extends Controller
         $people = $this->person->getPeople();
 
         return datatables()->of($people)
-            ->addColumn('actions', '<form action="/people/{{ $id}}" method="POST"> {{ csrf_field() }} {{ method_field(\'DELETE\') }}<button type="submit" class="btn btn-link"> <i class="fa fa-trash"></i> </button></form>')
+            ->addColumn('actions', '<form action="/people/{{ $id}}" method="POST"> {{ csrf_field() }} {{ method_field(\'DELETE\') }}<button type="submit" class="btn btn-link"> <i class="fa fa-trash"></i> </button></form><a href="/people/{{ $id}}/edit"><i class="fa fa-edit"></i></a>
+
+                                     ')
             ->escapeColumns('')
             ->make(true);
 
 
     }
 
-    function add_person_form(LanguageRepository $language,InterestRepository $interest){
+    function add_person_form(){
 
-        $languages = $language->getLanguageDropDown();
-        $interests = $interest->getInterestDropDown();
+        $languages = $this->getLanguagesDropdownList();
+        $interests = $this->getInterestsDropdownList();
 
         return view('people.add',compact('languages','interests'));
+    }
+
+    protected function getLanguagesDropdownList(){
+
+        $language = new LanguageRepository;
+
+        return $language->getLanguageDropDown();
+    }
+
+    protected function getInterestsDropdownList(){
+
+        $interest = new InterestRepository;
+
+        return $interest->getInterestDropDown();
     }
 
     public function destroy($id)
@@ -80,6 +96,24 @@ class PersonController extends Controller
 
         return redirect('/people');
 
+    }
+
+
+    public function edit($id){
+
+        $languages = $this->getLanguagesDropdownList();
+        $interests = $this->getInterestsDropdownList();
+        $person = $this->person->find($id);
+
+        return view('people.edit',compact('person','languages','interests'));
+
+    }
+
+    public function update(Request $request){
+
+        $this->person->edit($request);
+
+        return redirect('/people');
     }
 
 

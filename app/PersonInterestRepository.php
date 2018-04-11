@@ -33,5 +33,11 @@ class PersonInterestRepository
 
     }
 
+    function getInterestByPerson($personId){
+
+        return $this->personInterest->where('person_id',$personId)->get();
+
+    }
+
 
 }

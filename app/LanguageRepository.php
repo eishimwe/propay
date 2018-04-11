@@ -15,9 +15,9 @@ class LanguageRepository
     protected $language;
 
 
-    function __construct(Language $language)
+    function __construct()
     {
-        $this->language = $language;
+        $this->language = new Language;
     }
 
     function save($data){

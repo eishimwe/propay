@@ -29,15 +29,22 @@ Auth::routes();
 
 Route::get('people/create','PersonController@create');
 
-Route::post('people','PersonController@store');
-
 Route::get('people','PersonController@index');
 
 Route::get('people_list','PersonController@people_list');
 
 Route::get('add_person_form','PersonController@add_person_form');
 
+Route::get('people/{id}/edit','PersonController@edit');
+
+Route::post('people','PersonController@store');
+
+Route::put('people','PersonController@update');
+
 Route::delete('people/{person}','PersonController@destroy');
+
+
+
 
 
 

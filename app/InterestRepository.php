@@ -15,9 +15,9 @@ class InterestRepository
     protected $interest;
 
 
-    function __construct(Interest $interest)
+    function __construct()
     {
-        $this->interest = $interest;
+        $this->interest = new Interest;
     }
 
     function save($data){

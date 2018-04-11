@@ -13,12 +13,14 @@ namespace App;
 class PersonRepository
 {
 
-    protected $person;
+    protected $person,$personInterest;
 
 
     function __construct(Person $person)
     {
         $this->person = $person;
+
+        $this->personInterest =  new PersonInterestRepository(new PersonInterest());
     }
 
     function save($data){
@@ -51,11 +53,10 @@ class PersonRepository
 
     protected function savePersonInterests($interests,$personId){
 
-        $personInterest = new PersonInterestRepository(new PersonInterest());
 
         foreach ($interests as $interest){
 
-            $personInterest->save(['person_id' => $personId,'interest_id' => $interest]);
+            $this->personInterest->save(['person_id' => $personId,'interest_id' => $interest]);
 
         }
 
@@ -70,6 +71,23 @@ class PersonRepository
     function find($id){
 
         return $this->person->find($id);
+    }
+
+    function edit($data){
+
+        $person              = $this->person->find($data['id']);
+        $person->name        = $data['name'];
+        $person->surname     = $data['surname'];
+        $person->birth_date  = $data['birth_date'];
+        $person->language_id = $data['language_id'];
+        $person->save();
+
+        $person->interests()->delete();
+
+        $this->savePersonInterests($data['interests'],$person->id);
+
+        return $person;
+
     }
 
 

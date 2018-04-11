@@ -102,5 +102,33 @@ class PeopleTest extends TestCase
     }
 
 
+    /** @test */
+
+    function an_authenticated_user_can_update_existing_people(){
+
+
+        $this->withoutExceptionHandling();
+
+
+        $this->signIn();
+
+
+        $person   = create('App\Person');
+
+
+        $this->get('/people/'.$person->id.'/edit')->assertSee($person->name)->assertSee($person->surname);
+
+        $this->put('/people',array_merge($person->toArray(),['interests' => ['0' => 1,'1' => 2]]));
+
+        //people/{id}/edit
+
+
+        //$this->get('/people_list')->assertSee($person->name)->assertSee($person->surname);
+
+
+    }
+
+
+
 
 }

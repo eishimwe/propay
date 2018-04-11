@@ -150,11 +150,10 @@
                     </li>
                     <li class="nav-devider"></li>
 
-                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">People <span class="label label-rouded label-themecolor pull-right">0</span></span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="{{ url('people') }}">List </a></li>
+                            <li>
 
-                                </ul>
+                                <a class="has-arrow waves-effect waves-dark" href="{{ url('people') }}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">People</span></a>
+
                             </li>
                 </ul>
             </nav>
