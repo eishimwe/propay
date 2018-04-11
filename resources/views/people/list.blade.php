@@ -118,7 +118,7 @@
                     {data: 'id_number',  name: 'id_number'},
                     {data: 'mobile_number',  name: 'mobile_number'},
                     {data: 'email',  name: 'email'},
-                    {data: 'language',  name: 'language'},
+                    {data: 'language.name',  name: 'language.name'},
                     {data: 'actions',  name: 'actions'}
 
                 ],

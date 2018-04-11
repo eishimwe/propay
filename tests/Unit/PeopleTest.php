@@ -30,4 +30,15 @@ class PeopleTest extends TestCase
     }
 
 
+    /** @test */
+
+    function a_person_has_a_language()
+    {
+
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection',$this->person->language);
+
+    }
+
+
+
 }
