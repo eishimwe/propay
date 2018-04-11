@@ -39,6 +39,7 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Surname</th>
+                                    <th>Actions</th>
 
 
                                 </tr>
@@ -107,7 +108,8 @@
                 "columns": [
                     {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
-                    {data: 'surname',  name: 'surname'}
+                    {data: 'surname',  name: 'surname'},
+                    {data: 'actions',  name: 'actions'}
 
                 ],
 

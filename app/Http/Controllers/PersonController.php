@@ -42,7 +42,8 @@ class PersonController extends Controller
         $people = $this->person->getPeople();
 
         return datatables()->of($people)
-            ->addColumn('actions', '')
+            ->addColumn('actions', '<form action="/people/{{ $id}}" method="POST"> {{ csrf_field() }} {{ method_field(\'DELETE\') }}<button type="submit" class="btn btn-link"> <i class="fa fa-trash"></i> </button></form>')
+            ->escapeColumns('')
             ->make(true);
 
 
