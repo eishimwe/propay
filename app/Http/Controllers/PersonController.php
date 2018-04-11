@@ -6,6 +6,9 @@ use App\Http\Requests\storePersonRequest;
 use App\PersonRepository;
 use App\LanguageRepository;
 use App\InterestRepository;
+use Log;
+use App\Jobs\SendWelcomeEmail;
+use Mail;
 
 
 class PersonController extends Controller
@@ -29,7 +32,9 @@ class PersonController extends Controller
 
     function store(storePersonRequest $request){
 
-        $this->person->save($request->all());
+        $person = $this->person->save($request->all());
+
+        $this->dispatch(new SendWelcomeEmail($person));
 
         return redirect('/people')
             ->with('flash','Person has been created successfully!');

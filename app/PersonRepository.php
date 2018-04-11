@@ -29,6 +29,8 @@ class PersonRepository
         //save person interests
         $this->savePersonInterests($data['interests'],$personObject->id);
 
+        return $personObject;
+
 
     }
 

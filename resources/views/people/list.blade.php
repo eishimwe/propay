@@ -39,6 +39,11 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Surname</th>
+                                    <th>Birth Date</th>
+                                    <th>ID Number</th>
+                                    <th>Email</th>
+                                    <th>Mobile Number</th>
+                                    <th>Language</th>
                                     <th>Actions</th>
 
 
@@ -109,6 +114,11 @@
                     {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
                     {data: 'surname',  name: 'surname'},
+                    {data: 'birth_date',  name: 'birth_date'},
+                    {data: 'id_number',  name: 'id_number'},
+                    {data: 'mobile_number',  name: 'mobile_number'},
+                    {data: 'email',  name: 'email'},
+                    {data: 'language',  name: 'language'},
                     {data: 'actions',  name: 'actions'}
 
                 ],
